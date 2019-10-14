@@ -3,6 +3,6 @@ import { Text } from 'react-native';
 
 // import { Container } from './styles';
 
-export default function src() {
-  return <Text> Teste </Text>;
+export default function Teste() {
+  return <Text>Teste</Text>;
 }
