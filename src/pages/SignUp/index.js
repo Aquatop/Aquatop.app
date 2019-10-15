@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Image } from 'react-native';
 
-import logo from '~/assets/LogoMetadinha.png';
+import logo from '~/assets/Logo.png';
 
+import { signUpRequest } from '~/store/modules/auth/actions';
 import Background from '~/components/Background';
 
 import {
@@ -15,11 +17,23 @@ import {
 } from './styles';
 
 export default function SignUp({ navigation }) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const dispatch = useDispatch();
+
+  const loading = useSelector(state => state.auth.loading);
+
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confPasswordRef = useRef(null);
 
-  function handleSubmit() {}
+  function handleSubmit() {
+    dispatch(signUpRequest(name, email, password, confirmPassword));
+    // navigation.navigate('SignIn');
+  }
 
   return (
     <Background>
@@ -33,6 +47,8 @@ export default function SignUp({ navigation }) {
             placeholder="Nome completo"
             returnKeyType="next"
             onSubmitEditing={() => emailRef.current.focus()}
+            value={name}
+            onChangeText={setName}
           />
           <FormInput
             icon="mail-outline"
@@ -43,6 +59,8 @@ export default function SignUp({ navigation }) {
             returnKeyType="next"
             ref={emailRef}
             onSubmitEditing={() => passwordRef.current.focus()}
+            value={email}
+            onChangeText={setEmail}
           />
           <FormInput
             icon="lock-outline"
@@ -51,6 +69,8 @@ export default function SignUp({ navigation }) {
             returnKeyType="next"
             ref={passwordRef}
             onSubmitEditing={() => confPasswordRef.current.focus()}
+            value={password}
+            onChangeText={setPassword}
           />
           <FormInput
             icon="lock-outline"
@@ -59,9 +79,13 @@ export default function SignUp({ navigation }) {
             returnKeyType="send"
             ref={confPasswordRef}
             onSubmitEditing={handleSubmit}
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
           />
 
-          <SubmitButton onPress={handleSubmit}>Criar conta</SubmitButton>
+          <SubmitButton loading={loading} onPress={handleSubmit}>
+            Criar conta
+          </SubmitButton>
         </Form>
 
         <SignLink
