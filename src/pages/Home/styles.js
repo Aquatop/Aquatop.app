@@ -28,6 +28,15 @@ export const Text = styled.Text`
   font-weight: bold;
 `;
 
+export const BorderView = styled.View`
+  border: 3px solid black;
+  border-radius: 50;
+  height: 55;
+  width: 55;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const IconView = styled(RectButton)`
   height: 55;
   width: 55;
@@ -36,7 +45,6 @@ export const IconView = styled(RectButton)`
   align-items: center;
   margin-left: 80%;
   border-radius: 50;
-  border: 3px solid black;
 `;
 
 export const ButtonView = styled.View`

@@ -11,10 +11,10 @@ export default function Header() {
   return (
     <Container>
       <HeaderGroup>
-        <Image source={logo} style={{ height: 55, width: 55 }} />
+        <Image source={logo} style={{ height: 55, width: 64 }} />
         <Image
           source={text}
-          style={{ height: 40, width: 240, resizeMode: 'contain' }}
+          style={{ height: 40, width: 140, resizeMode: 'contain' }}
         />
       </HeaderGroup>
       <TouchableOpacity onPress={() => console.log('notificação')}>

@@ -12,6 +12,7 @@ import {
   Text,
   IconView,
   ButtonView,
+  BorderView
 } from './styles';
 
 export default function Home({ navigation }) {
@@ -32,7 +33,9 @@ export default function Home({ navigation }) {
               navigation.navigate('CreateAquarium');
             }}
           >
-            <Icon name="add" size={40} />
+            <BorderView>
+              <Icon name="add" size={40} />
+            </BorderView>
           </IconView>
         </ButtonView>
       </ContainerCenter>
