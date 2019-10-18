@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '~/assets/CleanLogo.png';
@@ -12,9 +12,14 @@ export default function Header() {
     <Container>
       <HeaderGroup>
         <Image source={logo} style={{ height: 55, width: 55 }} />
-        <Image source={text} style={{ height: 40, width: 240, resizeMode: 'contain' }} />
+        <Image
+          source={text}
+          style={{ height: 40, width: 240, resizeMode: 'contain' }}
+        />
       </HeaderGroup>
-      <Icon name="notifications" size={40} />
+      <TouchableOpacity onPress={() => console.log('notificação')}>
+        <Icon name="notifications" size={40} />
+      </TouchableOpacity>
     </Container>
   );
 }
