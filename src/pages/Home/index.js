@@ -12,13 +12,13 @@ import {
   Text,
   IconView,
   ButtonView,
-  BorderView
+  BorderView,
 } from './styles';
 
 export default function Home({ navigation }) {
   return (
     <Container>
-      <Header />
+      <Header navigation={navigation} />
       <ContainerCenter>
         <ImageView>
           <Image
