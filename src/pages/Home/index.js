@@ -30,7 +30,7 @@ export default function Home({ navigation }) {
         <ButtonView>
           <IconView
             onPress={() => {
-              navigation.navigate('CreateAquarium');
+              navigation.navigate('NewAquarium');
             }}
           >
             <BorderView>
