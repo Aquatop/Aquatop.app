@@ -3,6 +3,9 @@ import DatePicker from 'react-native-datepicker';
 
 export const Container = styled.View`
   flex-direction: row;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
 `;
 
 export const Text = styled.Text`
@@ -16,8 +19,5 @@ export const Text = styled.Text`
 `;
 
 export const TimePicker = styled(DatePicker)`
-  flex: 1;
-  font-size: 15px;
-  margin-left: 10px;
-  color: #fff;
+  align-self: flex-end;
 `;

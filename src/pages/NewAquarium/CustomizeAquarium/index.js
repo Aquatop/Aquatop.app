@@ -20,7 +20,9 @@ export default function CustomizeAquarium({ navigation, aquarium }) {
   const [fictionalName, setFictionalName] = useState('');
   const [FishSpecie, setFishSpecie] = useState('');
   const [FishAmount, setFishAmount] = useState(0);
-  const [FeedTime, setFeedTime] = useState('00:00');
+  const [FeedTime, setFeedTime] = useState('');
+  const [LightOn, setLightOn] = useState('');
+  const [LightOff, setLightOff] = useState('');
 
   const handleDecrement = () => {
     if (FishAmount > 0) {
@@ -77,8 +79,20 @@ export default function CustomizeAquarium({ navigation, aquarium }) {
 
           <TimeInput
             text="Horário de alimentação"
-            feedTime={FeedTime}
-            setFeedTime={time => setFeedTime(time)}
+            time={FeedTime}
+            setTime={time => setFeedTime(time)}
+          />
+
+          <TimeInput
+            text="Horário de ligar a luz"
+            time={LightOn}
+            setTime={time => setLightOn(time)}
+          />
+
+          <TimeInput
+            text="Horário de desligar a luz"
+            time={LightOff}
+            setTime={time => setLightOff(time)}
           />
 
           <SubmitButton onPress={handleSubmit}>Cadastrar</SubmitButton>

@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 
 import { Container, Text, TimePicker } from './styles';
 
-export default function TimeInput({ text, feedTime, setFeedTime }) {
+export default function TimeInput({ text, time, setTime }) {
   return (
     <Container>
       <Text>{text}</Text>
       <TimePicker
+        style={{ width: 100 }}
         mode="time"
         placeholder="00:00"
-        date={feedTime}
-        onDateChange={setFeedTime}
+        date={time}
+        onDateChange={setTime}
+        showIcon={false}
         customStyles={{
           dateText: {
             height: 46,
@@ -21,7 +23,6 @@ export default function TimeInput({ text, feedTime, setFeedTime }) {
             alignItems: 'center',
           },
           dateInput: {
-            height: 46,
             backgroundColor: 'rgba(0, 0, 0, 0.1)',
             borderRadius: 4,
             borderColor: 'rgba(0, 0, 0, 0.1)',
@@ -34,12 +35,12 @@ export default function TimeInput({ text, feedTime, setFeedTime }) {
 
 TimeInput.propTypes = {
   text: PropTypes.string,
-  feedTime: PropTypes.string,
-  setFeedTime: PropTypes.func,
+  time: PropTypes.string,
+  setTime: PropTypes.func,
 };
 
 TimeInput.defaultProps = {
   text: '',
-  feedTime: '',
-  setFeedTime: null,
+  time: '',
+  setTime: null,
 };
