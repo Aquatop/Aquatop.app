@@ -37,24 +37,26 @@ export const SubmitButton = styled(Button)`
 export const AmountButton = styled(RectButton)`
   border: 0;
   border-radius: 50;
-  padding: 0 15px;
   font-weight: bold;
   height: 46px;
   align-items: center;
   justify-content: center;
+  margin-left: 4px;
+  margin-right: 4px;
 `;
 export const AmountView = styled.View`
   flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
 `;
 
 export const AmountText = styled.Text`
-  font-size: 15px;
+  font-size: 18px;
   color: #fff;
   height: 46px;
   align-items: center;
   align-content: center;
   padding-top: 9px;
-  font-size: 20;
 `;
 
 export const TimePicker = styled(DatePicker)`
@@ -62,4 +64,10 @@ export const TimePicker = styled(DatePicker)`
   font-size: 15px;
   margin-left: 10px;
   color: #fff;
+`;
+
+export const QuantityView = styled.View`
+  width: 100;
+  flex-direction: row;
+  justify-content: space-between;
 `;

@@ -14,24 +14,36 @@ import {
   AmountButton,
   AmountView,
   AmountText,
+  QuantityView,
 } from './styles';
 
 export default function CustomizeAquarium({ navigation, aquarium }) {
   const [fictionalName, setFictionalName] = useState('');
-  const [FishSpecie, setFishSpecie] = useState('');
-  const [FishAmount, setFishAmount] = useState(0);
-  const [FeedTime, setFeedTime] = useState('');
-  const [LightOn, setLightOn] = useState('');
-  const [LightOff, setLightOff] = useState('');
+  const [fishSpecie, setFishSpecie] = useState('');
+  const [fishAmount, setFishAmount] = useState(0);
+  const [feedTime, setFeedTime] = useState('');
+  const [lightOn, setLightOn] = useState('');
+  const [lightOff, setLightOff] = useState('');
+  const [food, setFood] = useState(0);
 
-  const handleDecrement = () => {
-    if (FishAmount > 0) {
-      setFishAmount(FishAmount - 1);
+  const handleFishDecrement = () => {
+    if (fishAmount > 0) {
+      setFishAmount(fishAmount - 1);
     }
   };
 
-  const handleIncrement = () => {
-    setFishAmount(FishAmount + 1);
+  const handleFoodIncrement = () => {
+    setFood(food + 1);
+  };
+
+  const handleFoodDecrement = () => {
+    if (food > 0) {
+      setFood(food - 1);
+    }
+  };
+
+  const handleFishIncrement = () => {
+    setFishAmount(fishAmount + 1);
   };
 
   const handleSubmit = () => {
@@ -64,34 +76,48 @@ export default function CustomizeAquarium({ navigation, aquarium }) {
               placeholder="Espécie"
               returnKeyType="send"
               onSubmitEditing={handleSubmit}
-              value={FishSpecie}
+              value={fishSpecie}
               onChangeText={setFishSpecie}
             />
+            <QuantityView>
+              <AmountButton onPress={handleFishDecrement}>
+                <Icon name="remove-circle" size={30} color="white" />
+              </AmountButton>
+              <AmountText>{fishAmount}</AmountText>
+              <AmountButton onPress={handleFishIncrement}>
+                <Icon name="add-circle" size={30} color="white" />
+              </AmountButton>
+            </QuantityView>
+          </AmountView>
 
-            <AmountButton onPress={handleDecrement}>
-              <Icon name="remove-circle" size={30} color="white" />
-            </AmountButton>
-            <AmountText>{FishAmount}</AmountText>
-            <AmountButton onPress={handleIncrement}>
-              <Icon name="add-circle" size={30} color="white" />
-            </AmountButton>
+          <AmountView>
+            <AmountText>Quantidade de ração (g) </AmountText>
+            <QuantityView>
+              <AmountButton onPress={handleFoodDecrement}>
+                <Icon name="remove-circle" size={30} color="white" />
+              </AmountButton>
+              <AmountText>{food}</AmountText>
+              <AmountButton onPress={handleFoodIncrement}>
+                <Icon name="add-circle" size={30} color="white" />
+              </AmountButton>
+            </QuantityView>
           </AmountView>
 
           <TimeInput
             text="Horário de alimentação"
-            time={FeedTime}
+            time={feedTime}
             setTime={time => setFeedTime(time)}
           />
 
           <TimeInput
             text="Horário de ligar a luz"
-            time={LightOn}
+            time={lightOn}
             setTime={time => setLightOn(time)}
           />
 
           <TimeInput
             text="Horário de desligar a luz"
-            time={LightOff}
+            time={lightOff}
             setTime={time => setLightOff(time)}
           />
 
