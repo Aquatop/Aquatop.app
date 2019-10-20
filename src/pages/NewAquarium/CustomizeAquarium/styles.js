@@ -1,4 +1,8 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
+import DatePicker from 'react-native-datepicker'
+
+
 
 import Input from '~/components/Input';
 import Button from '~/components/Button';
@@ -25,8 +29,39 @@ export const Form = styled.ScrollView.attrs({
 
 export const FormInput = styled(Input)`
   margin-bottom: 10px;
+  flex: 1;
 `;
 
 export const SubmitButton = styled(Button)`
   margin-top: 5px;
 `;
+
+export const AmountButton = styled(RectButton)`
+  border: 0;
+  border-radius: 50;
+  padding: 0 15px;
+  font-weight: bold;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+ `
+ export const AmountView = styled.View`
+  flex-direction: row;
+ `
+
+ export const AmountText = styled.Text`
+  font-size: 15px;
+  color: #fff;
+  height: 46px;
+  align-items: center;
+  align-content: center;
+  padding-top: 9px;
+  font-size: 20;
+ `
+
+ export const TimePicker = styled(DatePicker)`
+  flex: 1;
+  font-size: 15px;
+  margin-left: 10px;
+  color: #fff;
+ `
