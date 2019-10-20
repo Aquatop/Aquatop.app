@@ -1,8 +1,6 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
-import DatePicker from 'react-native-datepicker'
-
-
+import DatePicker from 'react-native-datepicker';
 
 import Input from '~/components/Input';
 import Button from '~/components/Button';
@@ -44,12 +42,12 @@ export const AmountButton = styled(RectButton)`
   height: 46px;
   align-items: center;
   justify-content: center;
- `
- export const AmountView = styled.View`
+`;
+export const AmountView = styled.View`
   flex-direction: row;
- `
+`;
 
- export const AmountText = styled.Text`
+export const AmountText = styled.Text`
   font-size: 15px;
   color: #fff;
   height: 46px;
@@ -57,11 +55,11 @@ export const AmountButton = styled(RectButton)`
   align-content: center;
   padding-top: 9px;
   font-size: 20;
- `
+`;
 
- export const TimePicker = styled(DatePicker)`
+export const TimePicker = styled(DatePicker)`
   flex: 1;
   font-size: 15px;
   margin-left: 10px;
   color: #fff;
- `
+`;

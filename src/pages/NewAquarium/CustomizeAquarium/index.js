@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Alert, View, Text } from 'react-native';
+import { TouchableOpacity, Alert } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Background from '~/components/Background';
+import TimeInput from '~/components/TimeInput';
 
-import { Container,
-         Form, 
-         FormInput, 
-         SubmitButton, 
-         AmountButton, 
-         AmountView,
-         AmountText,
-         TimePicker, } from './styles';
+import {
+  Container,
+  Form,
+  FormInput,
+  SubmitButton,
+  AmountButton,
+  AmountView,
+  AmountText,
+} from './styles';
 
 export default function CustomizeAquarium({ navigation, aquarium }) {
   const [fictionalName, setFictionalName] = useState('');
@@ -22,14 +24,13 @@ export default function CustomizeAquarium({ navigation, aquarium }) {
 
   const handleDecrement = () => {
     if (FishAmount > 0) {
-      setFishAmount(FishAmount - 1)
+      setFishAmount(FishAmount - 1);
     }
-  } 
+  };
 
   const handleIncrement = () => {
-    setFishAmount(FishAmount + 1)
-  }
-
+    setFishAmount(FishAmount + 1);
+  };
 
   const handleSubmit = () => {
     if (fictionalName === 'a') {
@@ -66,41 +67,20 @@ export default function CustomizeAquarium({ navigation, aquarium }) {
             />
 
             <AmountButton onPress={handleDecrement}>
-              <Icon name = "remove-circle" size={30} color="white" />
+              <Icon name="remove-circle" size={30} color="white" />
             </AmountButton>
-            <AmountText>
-              {FishAmount}
-            </AmountText>
+            <AmountText>{FishAmount}</AmountText>
             <AmountButton onPress={handleIncrement}>
-              <Icon name = "add-circle" size={30} color="white" />
+              <Icon name="add-circle" size={30} color="white" />
             </AmountButton>
           </AmountView>
 
-          <AmountView>
-            <AmountText>Horário de alimentação:</AmountText>
-            <TimePicker 
-              mode="time" 
-              placeholder="00:00"
-              date = {FeedTime}
-              onDateChange = {time => setFeedTime(time)}
-              customStyles = {{
-                dateText:{
-                  height: 46,
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  borderRadius: 4,
-                  marginTop: 18,
-                  alignItems: 'center',
-                  fontSize: 20,
-                },
-                dateInput:{
-                  height: 46,
-                  backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                  borderRadius: 4,
-                  borderColor: 'rgba(0, 0, 0, 0.1)',
-                },
-              }}
-            />
-          </AmountView>
+          <TimeInput
+            text="Horário de alimentação"
+            feedTime={FeedTime}
+            setFeedTime={time => setFeedTime(time)}
+          />
+
           <SubmitButton onPress={handleSubmit}>Cadastrar</SubmitButton>
         </Form>
       </Container>
