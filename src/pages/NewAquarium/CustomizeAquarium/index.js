@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, Alert } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Background from '~/components/Background';
 import TimeInput from '~/components/TimeInput';
+import api from '~/services/api';
 
 import {
   Container,
@@ -17,7 +18,7 @@ import {
   QuantityView,
 } from './styles';
 
-export default function CustomizeAquarium({ navigation, aquarium }) {
+export default function CustomizeAquarium({ navigation }) {
   const [fictionalName, setFictionalName] = useState('');
   const [fishSpecie, setFishSpecie] = useState('');
   const [fishAmount, setFishAmount] = useState(0);
@@ -25,6 +26,11 @@ export default function CustomizeAquarium({ navigation, aquarium }) {
   const [lightOn, setLightOn] = useState('');
   const [lightOff, setLightOff] = useState('');
   const [food, setFood] = useState(0);
+  const [aquarium, setAquarium] = useState({});
+
+  useEffect(() => {
+    setAquarium(navigation.getParam('aquarium'));
+  }, [navigation]);
 
   const handleFishDecrement = () => {
     if (fishAmount > 0) {
@@ -46,8 +52,19 @@ export default function CustomizeAquarium({ navigation, aquarium }) {
     setFishAmount(fishAmount + 1);
   };
 
-  const handleSubmit = () => {
-    if (fictionalName === 'a') {
+  const handleSubmit = async () => {
+    console.tron.log('mandou?');
+
+    const response = await api.put(`/aquarium/${aquarium.name}`, {
+      fictionalName,
+      fish: fishSpecie,
+      foodQuantity: food,
+      foodInterval: feedTime,
+      turnOnLight: lightOn,
+      turnOffLight: lightOff,
+    });
+
+    if (response.status === 200) {
       navigation.navigate('Home');
     } else {
       Alert.alert('Falha no cadastro', 'Verifique os campos preenchidos!');

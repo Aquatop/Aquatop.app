@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Background from '~/components/Background';
+import api from '~/services/api';
 
 import { Container, AquariumList, Aquarium, Name } from './styles';
 
@@ -12,13 +13,8 @@ export default function SelectAquarium({ navigation }) {
 
   useEffect(() => {
     async function loadAquariums() {
-      // const response = await api.get('aquariums');
-      // setAquariums(response.data);
-
-      setAquariums([
-        { _id: '1', name: 'AQUARIO_1' },
-        { _id: '2', name: 'AQUARIO_2' },
-      ]);
+      const response = await api.get('/aquarium');
+      setAquariums(response.data);
     }
 
     loadAquariums();
