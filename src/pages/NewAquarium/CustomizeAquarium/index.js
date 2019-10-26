@@ -55,14 +55,17 @@ export default function CustomizeAquarium({ navigation }) {
   const handleSubmit = async () => {
     console.tron.log('mandou?');
 
-    const response = await api.put(`/aquarium/${aquarium.name}`, {
-      fictionalName,
-      fish: fishSpecie,
-      foodQuantity: food,
-      foodInterval: feedTime,
-      turnOnLight: lightOn,
-      turnOffLight: lightOff,
-    });
+    const response = await api.put(
+      `/aquarium-microservice/aquarium/${aquarium.name}`,
+      {
+        fictionalName,
+        fish: fishSpecie,
+        foodQuantity: food,
+        foodInterval: 2,
+        turnOnLight: lightOn,
+        turnOffLight: lightOff,
+      }
+    );
 
     if (response.status === 200) {
       navigation.navigate('Home');

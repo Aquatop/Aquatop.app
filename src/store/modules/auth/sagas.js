@@ -9,7 +9,7 @@ export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
-    const response = yield call(api.post, 'sessions', {
+    const response = yield call(api.post, 'user-microservice/sessions', {
       email,
       password,
     });
@@ -32,7 +32,7 @@ export function* signUp({ payload }) {
   try {
     const { name, email, password, confirmPassword } = payload;
 
-    yield call(api.post, 'users', {
+    yield call(api.post, 'user-microservice/users', {
       name,
       email,
       password,

@@ -13,7 +13,7 @@ export default function SelectAquarium({ navigation }) {
 
   useEffect(() => {
     async function loadAquariums() {
-      const response = await api.get('/aquarium');
+      const response = await api.get('aquarium-microservice/aquarium');
       setAquariums(response.data);
     }
 

@@ -15,13 +15,16 @@ export default function InsertPin({ navigation }) {
 
   useEffect(() => {
     setAquarium(navigation.getParam('aquarium'));
-    api.get(`/pin/${aquarium.name}`);
+    api.get(`aquarium-microservice/pin/${aquarium.name}`);
   }, [aquarium, navigation]);
 
   const handlerOnFulfill = useCallback(code => setPin(code), []);
 
   const handleSubmit = async () => {
-    const response = await api.post(`/pin/${aquarium.name}`, { pin });
+    const response = await api.post(
+      `aquarium-microservice/pin/${aquarium.name}`,
+      { pin }
+    );
 
     if (response.data.authorized) {
       navigation.navigate('CustomizeAquarium', { aquarium });
