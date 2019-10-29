@@ -1,25 +1,16 @@
 import React from 'react';
 import { Image } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Header from '~/components/Header';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import Background from '~/components/Background';
 import AquariumBackground from '~/assets/AquariumBackground.png';
 
-import {
-  Container,
-  ContainerCenter,
-  ImageView,
-  Text,
-  IconView,
-  ButtonView,
-  BorderView,
-} from './styles';
+import { Container, ImageView, Text } from './styles';
 
 export default function Home({ navigation }) {
   return (
-    <Container>
-      <Header navigation={navigation} />
-      <ContainerCenter>
+    <Background>
+      <Container>
         <ImageView>
           <Image
             source={AquariumBackground}
@@ -27,18 +18,14 @@ export default function Home({ navigation }) {
           />
         </ImageView>
         <Text>Adicione seu primeiro aquário!</Text>
-        <ButtonView>
-          <IconView
-            onPress={() => {
-              navigation.navigate('NewAquarium');
-            }}
-          >
-            <BorderView>
-              <Icon name="add" size={40} />
-            </BorderView>
-          </IconView>
-        </ButtonView>
-      </ContainerCenter>
-    </Container>
+      </Container>
+    </Background>
   );
 }
+
+Home.navigationOptions = {
+  tabBarLabel: 'Meu perfil',
+  tabBarIcon: ({ tintColor }) => (
+    <Icon name="zodiac-aquarius" size={45} color={tintColor} />
+  ),
+};

@@ -7,7 +7,7 @@ import Button from '~/components/Button';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  margin-top: 50px;
+  margin-top: 45px;
   justify-content: center;
   align-items: center;
 `;
@@ -31,7 +31,7 @@ export const FormInput = styled(Input)`
 `;
 
 export const SubmitButton = styled(Button)`
-  margin-top: 5px;
+  margin-top: 25px;
 `;
 
 export const AmountButton = styled(RectButton)`

@@ -1,14 +1,9 @@
 import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
-`;
-
-export const ContainerCenter = styled.View`
-  background: #f8f7f7;
   justify-content: center;
-  flex: 1;
+  align-items: center;
 `;
 
 export const ImageView = styled.View`
@@ -26,29 +21,4 @@ export const Text = styled.Text`
   line-height: 35px;
   text-align: center;
   font-weight: bold;
-`;
-
-export const BorderView = styled.View`
-  border: 3px solid black;
-  border-radius: 50;
-  height: 55;
-  width: 55;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const IconView = styled(RectButton)`
-  height: 55;
-  width: 55;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-  margin-left: 80%;
-  border-radius: 50;
-`;
-
-export const ButtonView = styled.View`
-  position: absolute;
-  bottom: 15px;
-  right: 3px;
 `;
