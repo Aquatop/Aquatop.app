@@ -1,8 +1,16 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text } from 'react-native';
 
-// import { Container } from './styles';
+import Background from '~/components/Background';
+
+import { Container } from './styles';
 
 export default function Monitoring() {
-  return <View />;
+  return (
+    <Background>
+      <Container>
+        <Text>Monitoring</Text>
+      </Container>
+    </Background>
+  );
 }

@@ -51,7 +51,7 @@ export default function Home({ navigation }) {
             data={aquariums}
             keyExtractor={aquarium => String(aquarium._id)}
             renderItem={({ item: aquarium }) => (
-              <Aquarium onPress={() => {}}>
+              <Aquarium onPress={() => navigation.navigate('Monitoring')}>
                 <Name>{aquarium.fictionalName}</Name>
               </Aquarium>
             )}
@@ -61,10 +61,3 @@ export default function Home({ navigation }) {
     </Background>
   );
 }
-
-Home.navigationOptions = {
-  tabBarLabel: 'Meu perfil',
-  tabBarIcon: ({ tintColor }) => (
-    <Icon name="zodiac-aquarius" size={45} color={tintColor} />
-  ),
-};
