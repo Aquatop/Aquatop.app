@@ -7,6 +7,12 @@ export const Container = styled.SafeAreaView`
   /* align-items: center; */
 `;
 
+export const View = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Title = styled.Text`
   font-size: 20px;
   color: #fff;
@@ -22,7 +28,6 @@ export const ImageView = styled.View`
 `;
 
 export const Text = styled.Text`
-  font-family: Roboto;
   font-style: normal;
   font-size: 30px;
   opacity: 0.2;

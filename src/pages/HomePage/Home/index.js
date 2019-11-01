@@ -9,6 +9,7 @@ import AquariumBackground from '~/assets/AquariumBackground.png';
 
 import {
   Container,
+  View,
   Title,
   ImageView,
   Text,
@@ -34,10 +35,8 @@ export default function Home({ navigation }) {
   return (
     <Background>
       <Container>
-        <Title>Meus aquários</Title>
-
         {aquariums.length === 0 ? (
-          <>
+          <View>
             <ImageView>
               <Image
                 source={AquariumBackground}
@@ -45,17 +44,25 @@ export default function Home({ navigation }) {
               />
             </ImageView>
             <Text>Adicione seu primeiro aquário!</Text>
-          </>
+          </View>
         ) : (
-          <AquariumList
-            data={aquariums}
-            keyExtractor={aquarium => String(aquarium._id)}
-            renderItem={({ item: aquarium }) => (
-              <Aquarium onPress={() => navigation.navigate('Monitoring')}>
-                <Name>{aquarium.fictionalName}</Name>
-              </Aquarium>
-            )}
-          />
+          <>
+            <Title>Meus aquários</Title>
+
+            <AquariumList
+              data={aquariums}
+              keyExtractor={aquarium => String(aquarium._id)}
+              renderItem={({ item: aquarium }) => (
+                <Aquarium
+                  onPress={() =>
+                    navigation.navigate('Monitoring', { aquarium })
+                  }
+                >
+                  <Name>{aquarium.fictionalName}</Name>
+                </Aquarium>
+              )}
+            />
+          </>
         )}
       </Container>
     </Background>
