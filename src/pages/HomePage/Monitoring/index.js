@@ -34,10 +34,9 @@ export default function Monitoring({ navigation }) {
       setAquarium(response.data);
       setLoading(false);
     }
-    console.tron.log(aquarium);
 
     loadAquarium();
-  }, [aquarium, navigation]);
+  }, [navigation]);
 
   const handleClick = () => {};
 

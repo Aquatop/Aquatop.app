@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Image } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import api from '~/services/api';
 
