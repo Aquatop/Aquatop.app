@@ -4,12 +4,17 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import Icon from 'react-native-vector-icons/Feather';
+import AddIcon from 'react-native-vector-icons/Feather';
+import AquariumIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
 
-import Home from '~/pages/Home';
+import Home from '~/pages/HomePage/Home';
+import EditAquarium from '~/pages/HomePage/EditAquarium';
+import Monitoring from '~/pages/HomePage/Monitoring';
+import Notification from '~/pages/HomePage/Notification';
+
 import Profile from '~/pages/Profile';
 
 import SelectAquarium from '~/pages/NewAquarium/SelectAquarium';
@@ -26,7 +31,35 @@ export default (signed = false) =>
         }),
         App: createBottomTabNavigator(
           {
-            Home,
+            HomePage: {
+              screen: createStackNavigator(
+                {
+                  Home,
+                  EditAquarium,
+                  Monitoring,
+                  Notification,
+                },
+                {
+                  defaultNavigationOptions: {
+                    headerTransparent: true,
+                    headerTintColor: '#fff',
+                    headerLeftContainerStyle: {
+                      marginLeft: 20,
+                    },
+                  },
+                }
+              ),
+              navigationOptions: {
+                tabBarLabel: 'Meus Aquários',
+                tabBarIcon: ({ tintColor }) => (
+                  <AquariumIcon
+                    name="zodiac-aquarius"
+                    size={45}
+                    color={tintColor}
+                  />
+                ),
+              },
+            },
             NewAquarium: {
               screen: createStackNavigator(
                 {
@@ -48,7 +81,7 @@ export default (signed = false) =>
                 tabBarVisible: false,
                 tabBarLabel: 'Agendar',
                 tabBarIcon: (
-                  <Icon
+                  <AddIcon
                     name="plus"
                     size={42}
                     color="rgba(255, 255, 255, 0.6)"
