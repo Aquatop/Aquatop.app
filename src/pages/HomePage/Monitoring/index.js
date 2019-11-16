@@ -17,6 +17,7 @@ import {
   Ph,
   WaterLevel,
   EditButton,
+  IconNotification,
 } from './styles';
 
 export default function Monitoring({ navigation }) {
@@ -82,6 +83,17 @@ Monitoring.navigationOptions = ({ navigation }) => ({
       }}
     >
       <Icon name="chevron-left" size={20} color="#FFF" />
+    </TouchableOpacity>
+  ),
+  headerRight: () => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('Notification', {
+          aquarium: navigation.getParam('aquarium'),
+        });
+      }}
+    >
+      <IconNotification />
     </TouchableOpacity>
   ),
 });

@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 import LinearGradient from 'react-native-linear-gradient';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import Button from '~/components/Button';
 
 export const Container = styled.SafeAreaView`
@@ -67,4 +68,12 @@ export const WaterLevel = styled(LinearGradient).attrs({
 
 export const EditButton = styled(Button)`
   margin-bottom: 40px;
+`;
+
+export const IconNotification = styled(Icon).attrs({
+  name: 'notifications',
+  size: 35,
+})`
+  margin-right: 10px;
+  color: #fff;
 `;
