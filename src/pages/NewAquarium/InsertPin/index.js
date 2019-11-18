@@ -1,5 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { TouchableOpacity, Alert } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { TouchableOpacity } from 'react-native';
+import { ToastActionsCreators } from 'react-native-redux-toast';
 
 import CodeInput from 'react-native-confirmation-code-field';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -12,6 +14,7 @@ import { Container, SubmitButton } from './styles';
 export default function InsertPin({ navigation }) {
   const [pin, setPin] = useState('');
   const [aquarium, setAquarium] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setAquarium(navigation.getParam('aquarium'));
@@ -29,9 +32,11 @@ export default function InsertPin({ navigation }) {
     if (response.data.authorized) {
       navigation.navigate('CustomizeAquarium', { aquarium });
     } else {
-      Alert.alert(
-        'Pin incorreto',
-        'O pin inserido não corresponde ao mostrado no display do aquario!'
+      dispatch(
+        ToastActionsCreators.displayError(
+          'Pin incorreto! \n O pin inserido não corresponde ao mostrado no display do aquario',
+          5000
+        )
       );
     }
   };

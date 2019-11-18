@@ -1,5 +1,5 @@
-import { Alert } from 'react-native';
 import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { ToastActionsCreators } from 'react-native-redux-toast';
 
 import api from '~/services/api';
 
@@ -20,10 +20,13 @@ export function* signIn({ payload }) {
 
     yield put(signInSuccess(token, user));
   } catch (err) {
-    Alert.alert(
-      'Falha na autenticação',
-      'Houve um erro no login, verifique seus dados'
+    yield put(
+      ToastActionsCreators.displayError(
+        'Falha na autenticação\n Houve um erro no login, verifique seus dados',
+        5000
+      )
     );
+
     yield put(signFailure());
   }
 }
@@ -38,10 +41,19 @@ export function* signUp({ payload }) {
       password,
       confirmPassword,
     });
+
+    yield put(
+      ToastActionsCreators.displayInfo(
+        'Sucesso! Cadastro realizado com sucesso',
+        2000
+      )
+    );
   } catch (err) {
-    Alert.alert(
-      'Falha no cadastro',
-      'Houve um erro no cadastro, verifique seus dados'
+    yield put(
+      ToastActionsCreators.displayError(
+        'Falha no cadastro\n Houve um erro no cadastro, verifique seus dados',
+        5000
+      )
     );
 
     yield put(signFailure());

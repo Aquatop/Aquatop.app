@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { TouchableOpacity, Alert } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { TouchableOpacity } from 'react-native';
+import { ToastActionsCreators } from 'react-native-redux-toast';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -28,6 +30,7 @@ export default function CustomizeAquarium({ navigation }) {
   const [lightOff, setLightOff] = useState('');
   const [food, setFood] = useState(0);
   const [aquarium, setAquarium] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setAquarium(navigation.getParam('aquarium'));
@@ -56,22 +59,24 @@ export default function CustomizeAquarium({ navigation }) {
   const handleSubmit = async () => {
     console.tron.log(lightOn);
 
-    const response = await api.put(
-      `/aquarium-microservice/aquarium/${aquarium.name}`,
-      {
+    try {
+      await api.put(`/aquarium-microservice/aquarium/${aquarium.name}`, {
         fictionalName,
         fish: fishSpecie,
         foodQuantity: food,
+        fishQuantity: fishAmount,
         foodInterval: `${feedTime} hours`,
         turnOnLight: `today at ${lightOn}am`,
         turnOffLight: `today at ${lightOff}pm`,
-      }
-    );
-
-    if (response.status === 200) {
+      });
       navigation.navigate('Home');
-    } else {
-      Alert.alert('Falha no cadastro', 'Verifique os campos preenchidos!');
+    } catch (err) {
+      dispatch(
+        ToastActionsCreators.displayError(
+          'Falha no cadastro \nVerifique os campos preenchidos!',
+          5000
+        )
+      );
     }
   };
 
