@@ -1,5 +1,5 @@
-import { Alert } from 'react-native';
 import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { ToastActionsCreators } from 'react-native-redux-toast';
 
 import api from '~/services/api';
 
@@ -17,14 +17,22 @@ export function* updateProfile({ payload }) {
 
     const response = yield call(api.put, 'user-microservice/users', profile);
 
-    Alert.alert('Sucesso!', 'Perfil atualizado com sucesso');
+    yield put(
+      ToastActionsCreators.displayError(
+        'Sucesso!\n Perfil atualizado com sucesso',
+        5000
+      )
+    );
 
     yield put(updateProfileSuccess(response.data));
   } catch (err) {
-    Alert.alert(
-      'Falha na atualização',
-      'Houve um erro na atualização do perfil, verifique seus dados'
+    yield put(
+      ToastActionsCreators.displayError(
+        'Falha na atualização!\n Houve um erro na atualização do perfil, verifique seus dados',
+        5000
+      )
     );
+
     yield put(updateProfileFailure());
   }
 }
