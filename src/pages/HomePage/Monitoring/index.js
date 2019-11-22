@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import api from '~/services/api';
 
 import Background from '~/components/Background';
+import WaterLevelBar from '~/components/WaterLevelBar';
 
 import {
   Container,
@@ -15,7 +16,7 @@ import {
   Label,
   Value,
   Ph,
-  WaterLevel,
+  WaterLevelContainer,
   EditButton,
   IconNotification,
 } from './styles';
@@ -61,10 +62,10 @@ export default function Monitoring({ navigation }) {
                 <Value>{aquarium.ph}</Value>
               </Ph>
             </Top>
-            <WaterLevel>
+            <WaterLevelContainer>
               <Label>Nível de água</Label>
-              <Value>{aquarium.waterLevel}</Value>
-            </WaterLevel>
+              <WaterLevelBar progress={Number(aquarium.waterLevel)} />
+            </WaterLevelContainer>
 
             <EditButton onPress={handleClick}>Editar aquário</EditButton>
           </>

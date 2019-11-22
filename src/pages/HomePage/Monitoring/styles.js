@@ -52,18 +52,14 @@ export const Ph = styled.View`
   opacity: 0.9;
 `;
 
-export const WaterLevel = styled(LinearGradient).attrs({
-  colors: ['#fff', '#120a8f'],
-})`
+export const WaterLevelContainer = styled.View`
+  background: #fff;
   border-radius: 12px;
-  padding: 10px;
   flex: 1;
+  padding: 10px;
   align-items: center;
-  margin: 10px 0 20px 0;
+  margin: 20px 10px 10px 0;
   opacity: 0.9;
-  max-height: 250px;
-  border: 1px;
-  border-color: #fff;
 `;
 
 export const EditButton = styled(Button)`
