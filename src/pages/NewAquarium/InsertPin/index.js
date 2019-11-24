@@ -34,7 +34,7 @@ export default function InsertPin({ navigation }) {
     } else {
       dispatch(
         ToastActionsCreators.displayError(
-          'Pin incorreto! \n O pin inserido não corresponde ao mostrado no display do aquario',
+          'Pin incorreto! O pin inserido não corresponde ao mostrado no display do aquario',
           5000
         )
       );

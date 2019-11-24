@@ -71,7 +71,7 @@ export default function CustomizeAquarium({ navigation }) {
     } catch (err) {
       dispatch(
         ToastActionsCreators.displayError(
-          'Falha no cadastro \nVerifique os campos preenchidos!',
+          'Falha no cadastro verifique os campos preenchidos!',
           5000
         )
       );

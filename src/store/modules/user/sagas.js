@@ -18,8 +18,8 @@ export function* updateProfile({ payload }) {
     const response = yield call(api.put, 'user-microservice/users', profile);
 
     yield put(
-      ToastActionsCreators.displayError(
-        'Sucesso!\n Perfil atualizado com sucesso',
+      ToastActionsCreators.displayInfo(
+        'Sucesso! Perfil atualizado com sucesso',
         5000
       )
     );
@@ -28,7 +28,7 @@ export function* updateProfile({ payload }) {
   } catch (err) {
     yield put(
       ToastActionsCreators.displayError(
-        'Falha na atualização!\n Houve um erro na atualização do perfil, verifique seus dados',
+        'Falha na atualização! Houve um erro na atualização do perfil, verifique seus dados',
         5000
       )
     );

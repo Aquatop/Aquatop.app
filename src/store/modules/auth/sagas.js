@@ -22,7 +22,7 @@ export function* signIn({ payload }) {
   } catch (err) {
     yield put(
       ToastActionsCreators.displayError(
-        'Falha na autenticação\n Houve um erro no login, verifique seus dados',
+        'Falha na autenticação! Houve um erro no login, verifique seus dados',
         5000
       )
     );
@@ -51,7 +51,7 @@ export function* signUp({ payload }) {
   } catch (err) {
     yield put(
       ToastActionsCreators.displayError(
-        'Falha no cadastro\n Houve um erro no cadastro, verifique seus dados',
+        'Falha no cadastro! Houve um erro no cadastro, verifique seus dados',
         5000
       )
     );
