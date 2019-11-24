@@ -41,7 +41,9 @@ export default function Monitoring({ navigation }) {
     loadAquarium();
   }, [navigation]);
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    navigation.navigate('EditAquarium', { aquarium });
+  };
 
   return (
     <Background>

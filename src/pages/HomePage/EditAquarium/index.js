@@ -1,8 +1,202 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { ActivityIndicator, View } from 'react-native';
+import { ToastActionsCreators } from 'react-native-redux-toast';
 
-// import { Container } from './styles';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function EditAquarium() {
-  return <View />;
+import Background from '~/components/Background';
+import TimeInput from '~/components/TimeInput';
+import api from '~/services/api';
+
+import {
+  Container,
+  Form,
+  FormInput,
+  SubmitButton,
+  AmountButton,
+  AmountView,
+  AmountText,
+  QuantityView,
+  Separator,
+} from './styles';
+
+export default function EditAquarium({ navigation }) {
+  const [fictionalName, setFictionalName] = useState('');
+  const [fishSpecie, setFishSpecie] = useState('');
+  const [fishAmount, setFishAmount] = useState(0);
+  const [feedTime, setFeedTime] = useState('');
+  const [lightOn, setLightOn] = useState('');
+  const [lightOff, setLightOff] = useState('');
+  const [food, setFood] = useState(0);
+  const [aquarium, setAquarium] = useState({});
+  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function loadAquarium() {
+      const aquariumInfo = navigation.getParam('aquarium');
+
+      const response = await api.get(
+        `/aquarium-microservice/aquarium/${aquariumInfo.name}`
+      );
+
+      setAquarium(response.data);
+      setFictionalName(aquarium.fictionalName);
+      setFishSpecie(aquarium.fish);
+      setFishAmount(aquarium.fishQuantity);
+      setFeedTime(aquarium.foodInterval);
+      setLightOn(aquarium.turnOnLight);
+      setLightOff(aquarium.turnOffLight);
+      setFood(aquarium.foodQuantity);
+
+      setLoading(false);
+    }
+
+    loadAquarium();
+  }, [
+    aquarium.fictionalName,
+    aquarium.fish,
+    aquarium.fishQuantity,
+    aquarium.foodInterval,
+    aquarium.foodQuantity,
+    aquarium.turnOffLight,
+    aquarium.turnOnLight,
+    navigation,
+  ]);
+
+  const handleFishDecrement = () => {
+    if (fishAmount > 0) {
+      setFishAmount(fishAmount - 1);
+    }
+  };
+
+  const handleFoodIncrement = () => {
+    setFood(food + 1);
+  };
+
+  const handleFoodDecrement = () => {
+    if (food > 0) {
+      setFood(food - 1);
+    }
+  };
+
+  const handleFishIncrement = () => {
+    setFishAmount(fishAmount + 1);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      await api.put(`/aquarium-microservice/aquarium/${aquarium.name}`, {
+        fictionalName,
+        fish: fishSpecie,
+        foodQuantity: food,
+        fishQuantity: fishAmount,
+        foodInterval: feedTime,
+        turnOnLight: lightOn,
+        turnOffLight: lightOff,
+      });
+      dispatch(
+        ToastActionsCreators.displayInfo(
+          'Aquario atualizado com sucesso!',
+          5000
+        )
+      );
+    } catch (err) {
+      dispatch(
+        ToastActionsCreators.displayError(
+          'Falha no cadastro verifique os campos preenchidos!',
+          5000
+        )
+      );
+    }
+  };
+
+  return (
+    <Background>
+      <Container>
+        {loading ? (
+          <View>
+            <ActivityIndicator size="large" color="#FFF" />
+          </View>
+        ) : (
+          <>
+            <Form>
+              <FormInput
+                icon="create"
+                autoCorrect={false}
+                autoCapitalize="none"
+                placeholder="Nome fictício do aquário"
+                returnKeyType="send"
+                // onSubmitEditing={() => {}}
+                value={fictionalName}
+                onChangeText={setFictionalName}
+              />
+              <AmountView>
+                <FormInput
+                  icon="create"
+                  autoCorrect={false}
+                  autoCapitalize="none"
+                  placeholder="Espécie dos peixes"
+                  returnKeyType="next"
+                  value={fishSpecie}
+                  onChangeText={setFishSpecie}
+                />
+                <QuantityView>
+                  <AmountButton onPress={handleFishDecrement}>
+                    <Icon name="remove-circle" size={30} color="white" />
+                  </AmountButton>
+                  <AmountText>{fishAmount}</AmountText>
+                  <AmountButton onPress={handleFishIncrement}>
+                    <Icon name="add-circle" size={30} color="white" />
+                  </AmountButton>
+                </QuantityView>
+              </AmountView>
+
+              <Separator />
+
+              <FormInput
+                icon="access-time"
+                autoCorrect={false}
+                autoCapitalize="none"
+                placeholder="Intervalo de alimentação(h)"
+                returnKeyType="next"
+                value={feedTime}
+                onChangeText={setFeedTime}
+                keyboardType="numeric"
+                maxLength={2}
+              />
+
+              <AmountView>
+                <AmountText>Quantidade de ração (g) </AmountText>
+                <QuantityView>
+                  <AmountButton onPress={handleFoodDecrement}>
+                    <Icon name="remove-circle" size={30} color="white" />
+                  </AmountButton>
+                  <AmountText>{food}</AmountText>
+                  <AmountButton onPress={handleFoodIncrement}>
+                    <Icon name="add-circle" size={30} color="white" />
+                  </AmountButton>
+                </QuantityView>
+              </AmountView>
+
+              <TimeInput
+                text="Horário de ligar a luz"
+                time={lightOn}
+                setTime={time => setLightOn(time)}
+              />
+
+              <TimeInput
+                text="Horário de desligar a luz"
+                time={lightOff}
+                setTime={time => setLightOff(time)}
+              />
+
+              <SubmitButton onPress={handleSubmit}>Editar</SubmitButton>
+            </Form>
+          </>
+        )}
+      </Container>
+    </Background>
+  );
 }

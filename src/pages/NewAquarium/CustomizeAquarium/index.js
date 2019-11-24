@@ -57,8 +57,6 @@ export default function CustomizeAquarium({ navigation }) {
   };
 
   const handleSubmit = async () => {
-    console.tron.log(lightOn);
-
     try {
       await api.put(`/aquarium-microservice/aquarium/${aquarium.name}`, {
         fictionalName,
