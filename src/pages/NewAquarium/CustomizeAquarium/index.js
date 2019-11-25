@@ -63,9 +63,9 @@ export default function CustomizeAquarium({ navigation }) {
         fish: fishSpecie,
         foodQuantity: food,
         fishQuantity: fishAmount,
-        foodInterval: `${feedTime} hours`,
-        turnOnLight: `today at ${lightOn}am`,
-        turnOffLight: `today at ${lightOff}pm`,
+        foodInterval: feedTime,
+        turnOnLight: lightOn,
+        turnOffLight: lightOff,
       });
       navigation.navigate('Home');
     } catch (err) {
