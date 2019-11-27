@@ -41,29 +41,20 @@ export default function EditAquarium({ navigation }) {
         `/aquarium-microservice/aquarium/${aquariumInfo.name}`
       );
 
+      setFictionalName(response.data.fictionalName);
+      setFishSpecie(response.data.fish);
+      setFishAmount(response.data.fishQuantity);
+      setFeedTime(response.data.foodInterval);
+      setLightOn(response.data.turnOnLight);
+      setLightOff(response.data.turnOffLight);
+      setFood(response.data.foodQuantity);
       setAquarium(response.data);
-      setFictionalName(aquarium.fictionalName);
-      setFishSpecie(aquarium.fish);
-      setFishAmount(aquarium.fishQuantity);
-      setFeedTime(aquarium.foodInterval);
-      setLightOn(aquarium.turnOnLight);
-      setLightOff(aquarium.turnOffLight);
-      setFood(aquarium.foodQuantity);
 
       setLoading(false);
     }
 
     loadAquarium();
-  }, [
-    aquarium.fictionalName,
-    aquarium.fish,
-    aquarium.fishQuantity,
-    aquarium.foodInterval,
-    aquarium.foodQuantity,
-    aquarium.turnOffLight,
-    aquarium.turnOnLight,
-    navigation,
-  ]);
+  }, [navigation]);
 
   const handleFishDecrement = () => {
     if (fishAmount > 0) {

@@ -37,13 +37,36 @@ export default function Monitoring({ navigation }) {
       setAquarium(response.data);
       setLoading(false);
     }
-
     loadAquarium();
-  }, [navigation]);
+  }, [navigation, loading]);
 
   const handleClick = () => {
     navigation.navigate('EditAquarium', { aquarium });
   };
+
+  async function handleFood() {
+    await api.post(`/aquarium-microservice/actions/${aquarium.name}`, {
+      type: 'REQUEST_FEED_FISHES',
+    });
+  }
+
+  async function handleTurnOnLights() {
+    await api.post(`/aquarium-microservice/actions/${aquarium.name}`, {
+      type: 'REQUEST_TURN_ON_LIGHTS',
+    });
+  }
+
+  async function handleTurnOffLights() {
+    await api.post(`/aquarium-microservice/actions/${aquarium.name}`, {
+      type: 'REQUEST_TURN_OFF_LIGHTS',
+    });
+  }
+
+  async function handleSwapWater() {
+    await api.post(`/aquarium-microservice/actions/${aquarium.name}`, {
+      type: 'REQUEST_SWAP_WATER',
+    });
+  }
 
   return (
     <Background>
@@ -72,23 +95,32 @@ export default function Monitoring({ navigation }) {
             </Top>
 
             <Top>
-              <CommandButton style={{ marginRight: 10 }}>
+              <CommandButton style={{ marginRight: 10 }} onPress={handleFood}>
                 <Icon name="food" size={40} color="#000" />
               </CommandButton>
 
-              <CommandButton style={{ marginRight: 10 }}>
+              <CommandButton
+                style={{ marginRight: 10 }}
+                onPress={handleTurnOnLights}
+              >
                 <Icon name="lightbulb" size={33} color="#000" />
               </CommandButton>
 
-              <CommandButton style={{ marginRight: 10 }}>
+              <CommandButton
+                style={{ marginRight: 10 }}
+                onPress={handleTurnOffLights}
+              >
                 <Icon name="lightbulb-off" size={33} color="#000" />
               </CommandButton>
 
-              <CommandButton style={{ marginRight: 10 }}>
+              <CommandButton
+                style={{ marginRight: 10 }}
+                onPress={handleSwapWater}
+              >
                 <Icon name="swap-vertical-bold" size={36} color="#000" />
               </CommandButton>
 
-              <CommandButton>
+              <CommandButton onPress={() => setLoading(true)}>
                 <Icon name="refresh" size={34} color="#000" />
               </CommandButton>
             </Top>
