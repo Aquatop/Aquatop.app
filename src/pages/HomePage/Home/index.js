@@ -29,7 +29,7 @@ export default function Home({ navigation }) {
       setAquariums(response.data);
     }
     loadAquariums();
-  }, []);
+  }, [aquariums]);
 
   return (
     <Background>

@@ -31,7 +31,7 @@ export function* signIn({ payload }) {
   }
 }
 
-export function* signUp({ payload }) {
+export function* signUp({ payload, navigation }) {
   try {
     const { name, email, password, confirmPassword } = payload;
 
@@ -48,6 +48,8 @@ export function* signUp({ payload }) {
         2000
       )
     );
+
+    navigation.navigate('SignIn');
   } catch (err) {
     yield put(
       ToastActionsCreators.displayError(
