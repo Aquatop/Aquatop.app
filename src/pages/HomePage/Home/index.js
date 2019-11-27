@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Image } from 'react-native';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import api from '~/services/api';
 
@@ -20,7 +21,7 @@ import {
 export default function Home({ navigation }) {
   const [aquariums, setAquariums] = useState([]);
 
-  useEffect(() => {
+  const callback = useCallback(() => {
     async function loadAquariums() {
       const response = await api.get(
         '/aquarium-microservice/aquarium?owner=true'
@@ -29,7 +30,20 @@ export default function Home({ navigation }) {
       setAquariums(response.data);
     }
     loadAquariums();
-  }, [aquariums]);
+  }, []);
+
+  useFocusEffect(callback);
+
+  // useEffect(() => {
+  //   async function loadAquariums() {
+  //     const response = await api.get(
+  //       '/aquarium-microservice/aquarium?owner=true'
+  //     );
+
+  //     setAquariums(response.data);
+  //   }
+  //   loadAquariums();
+  // }, []);
 
   return (
     <Background>

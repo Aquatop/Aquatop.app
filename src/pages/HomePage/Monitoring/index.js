@@ -28,14 +28,16 @@ export default function Monitoring({ navigation }) {
 
   useEffect(() => {
     async function loadAquarium() {
-      const aquariumInfo = navigation.getParam('aquarium');
+      if (loading) {
+        const aquariumInfo = navigation.getParam('aquarium');
 
-      const response = await api.get(
-        `/monitoring-microservice/monitoring/${aquariumInfo.name}`
-      );
+        const response = await api.get(
+          `/monitoring-microservice/monitoring/${aquariumInfo.name}`
+        );
 
-      setAquarium(response.data);
-      setLoading(false);
+        setAquarium(response.data);
+        setLoading(false);
+      }
     }
     loadAquarium();
   }, [navigation, loading]);

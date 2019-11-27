@@ -35,10 +35,12 @@ export const Temperature = styled.View`
 export const Label = styled.Text`
   font-size: 20px;
   font-weight: bold;
+  color: #000;
 `;
 
 export const Value = styled.Text`
   font-size: 35px;
+  color: #000;
 `;
 
 export const Ph = styled.View`
