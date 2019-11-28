@@ -79,6 +79,20 @@ export default function Monitoring({ navigation }) {
           </View>
         ) : (
           <>
+            <Top>
+              <Temperature>
+                <Label>Espécie do peixe</Label>
+                <Value style={{ fontSize: 27 }}>
+                  {navigation.getParam('aquarium').fish}
+                </Value>
+              </Temperature>
+
+              <Ph>
+                <Label>Qtd de Peixes</Label>
+                <Value>{navigation.getParam('aquarium').fishQuantity}</Value>
+              </Ph>
+            </Top>
+
             <WaterLevelContainer>
               <Label>Nível de água: {aquarium.waterLevel}%</Label>
               <WaterLevelBar waterLevel={Number(aquarium.waterLevel)} />
