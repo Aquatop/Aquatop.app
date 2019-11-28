@@ -2,7 +2,6 @@ import React from 'react';
 
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
-import { Toast } from 'react-native-redux-toast';
 import { StatusBar } from 'react-native';
 
 import '~/config/ReactotronConfig';
@@ -17,7 +16,6 @@ export default function Index() {
       <PersistGate persistor={persistor}>
         <StatusBar barStyle="light-content" backgroundColor="#65AECD" />
         <App />
-        <Toast messageStyle={{ color: 'white' }} />
       </PersistGate>
     </Provider>
   );

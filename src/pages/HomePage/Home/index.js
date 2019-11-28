@@ -34,17 +34,6 @@ export default function Home({ navigation }) {
 
   useFocusEffect(callback);
 
-  // useEffect(() => {
-  //   async function loadAquariums() {
-  //     const response = await api.get(
-  //       '/aquarium-microservice/aquarium?owner=true'
-  //     );
-
-  //     setAquariums(response.data);
-  //   }
-  //   loadAquariums();
-  // }, []);
-
   return (
     <Background>
       <Container>

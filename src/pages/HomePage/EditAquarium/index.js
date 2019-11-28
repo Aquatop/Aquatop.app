@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { ActivityIndicator, View } from 'react-native';
-import { ToastActionsCreators } from 'react-native-redux-toast';
+import { ActivityIndicator, View, Alert } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -31,7 +29,6 @@ export default function EditAquarium({ navigation }) {
   const [food, setFood] = useState(0);
   const [aquarium, setAquarium] = useState({});
   const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     async function loadAquarium() {
@@ -87,19 +84,10 @@ export default function EditAquarium({ navigation }) {
         turnOnLight: lightOn,
         turnOffLight: lightOff,
       });
-      dispatch(
-        ToastActionsCreators.displayInfo(
-          'Aquario atualizado com sucesso!',
-          5000
-        )
-      );
+
+      Alert.alert('Sucesso! Aquario atualizaado com sucesso!');
     } catch (err) {
-      dispatch(
-        ToastActionsCreators.displayError(
-          'Falha no cadastro verifique os campos preenchidos!',
-          5000
-        )
-      );
+      Alert.alert('Erro! Verifique os campos preenchidos!');
     }
   };
 

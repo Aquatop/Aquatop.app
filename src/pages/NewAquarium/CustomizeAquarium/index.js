@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { TouchableOpacity } from 'react-native';
-import { ToastActionsCreators } from 'react-native-redux-toast';
+import { TouchableOpacity, Alert } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -30,7 +28,6 @@ export default function CustomizeAquarium({ navigation }) {
   const [lightOff, setLightOff] = useState('');
   const [food, setFood] = useState(0);
   const [aquarium, setAquarium] = useState({});
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setAquarium(navigation.getParam('aquarium'));
@@ -69,12 +66,7 @@ export default function CustomizeAquarium({ navigation }) {
       });
       navigation.navigate('Home');
     } catch (err) {
-      dispatch(
-        ToastActionsCreators.displayError(
-          'Falha no cadastro verifique os campos preenchidos!',
-          5000
-        )
-      );
+      Alert.alert('Falha no cadastro', 'Verifique os campos preenchidos!');
     }
   };
 
