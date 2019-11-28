@@ -9,7 +9,8 @@
       android:icon="@drawable/icon"
       android:roundIcon="@drawable/icon"
       android:allowBackup="false"
-      android:theme="@style/AppTheme">
+      android:theme="@style/AppTheme"
+      android:usesCleartextTraffic="true">
       <activity
         android:theme="@style/SplashTheme"
         android:name=".MainActivity"
