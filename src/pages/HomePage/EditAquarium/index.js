@@ -59,15 +59,15 @@ export default function EditAquarium({ navigation }) {
     }
   };
 
-  const handleFoodIncrement = () => {
-    setFood(food + 1);
-  };
+  // const handleFoodIncrement = () => {
+  //   setFood(food + 1);
+  // };
 
-  const handleFoodDecrement = () => {
-    if (food > 0) {
-      setFood(food - 1);
-    }
-  };
+  // const handleFoodDecrement = () => {
+  //   if (food > 0) {
+  //     setFood(food - 1);
+  //   }
+  // };
 
   const handleFishIncrement = () => {
     setFishAmount(fishAmount + 1);
@@ -146,7 +146,7 @@ export default function EditAquarium({ navigation }) {
                 maxLength={2}
               />
 
-              <AmountView>
+              {/* <AmountView>
                 <AmountText>Quantidade de ração (g) </AmountText>
                 <QuantityView>
                   <AmountButton onPress={handleFoodDecrement}>
@@ -157,7 +157,7 @@ export default function EditAquarium({ navigation }) {
                     <Icon name="add-circle" size={30} color="white" />
                   </AmountButton>
                 </QuantityView>
-              </AmountView>
+              </AmountView> */}
 
               <TimeInput
                 text="Horário de ligar a luz"
