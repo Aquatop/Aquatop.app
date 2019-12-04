@@ -31,8 +31,7 @@ export default function SignUp({ navigation }) {
   const confPasswordRef = useRef(null);
 
   function handleSubmit() {
-    dispatch(signUpRequest(name, email, password, confirmPassword));
-    // navigation.navigate('SignIn');
+    dispatch(signUpRequest(name, email, password, confirmPassword, navigation));
   }
 
   return (

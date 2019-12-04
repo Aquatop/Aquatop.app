@@ -42,14 +42,3 @@ export const LogoutButton = styled(Button)`
   margin-top: 10px;
   background: #f64c75;
 `;
-
-export const HomeLink = styled.TouchableOpacity`
-  margin-top: 20px;
-  align-self: center;
-`;
-
-export const HomeLinkText = styled.Text`
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-`;

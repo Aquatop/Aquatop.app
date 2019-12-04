@@ -1,5 +1,5 @@
-import { Alert } from 'react-native';
 import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { Alert } from 'react-native';
 
 import api from '~/services/api';
 
@@ -21,14 +21,15 @@ export function* signIn({ payload }) {
     yield put(signInSuccess(token, user));
   } catch (err) {
     Alert.alert(
-      'Falha na autenticação',
+      'Falha na autenticação!',
       'Houve um erro no login, verifique seus dados'
     );
+
     yield put(signFailure());
   }
 }
 
-export function* signUp({ payload }) {
+export function* signUp({ payload, navigation }) {
   try {
     const { name, email, password, confirmPassword } = payload;
 
@@ -38,9 +39,13 @@ export function* signUp({ payload }) {
       password,
       confirmPassword,
     });
+
+    Alert.alert('Sucesso!', 'Cadastro realizado com sucesso');
+
+    navigation.navigate('SignIn');
   } catch (err) {
     Alert.alert(
-      'Falha no cadastro',
+      'Falha no cadastro!',
       'Houve um erro no cadastro, verifique seus dados'
     );
 

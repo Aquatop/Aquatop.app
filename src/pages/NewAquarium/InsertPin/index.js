@@ -30,8 +30,8 @@ export default function InsertPin({ navigation }) {
       navigation.navigate('CustomizeAquarium', { aquarium });
     } else {
       Alert.alert(
-        'Pin incorreto',
-        'O pin inserido não corresponde ao mostrado no display do aquario!'
+        'Pin incorreto!',
+        'O pin inserido não corresponde ao mostrado no display do aquario'
       );
     }
   };

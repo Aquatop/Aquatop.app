@@ -16,6 +16,7 @@ import {
   AmountView,
   AmountText,
   QuantityView,
+  Separator,
 } from './styles';
 
 export default function CustomizeAquarium({ navigation }) {
@@ -53,23 +54,18 @@ export default function CustomizeAquarium({ navigation }) {
   };
 
   const handleSubmit = async () => {
-    console.tron.log('mandou?');
-
-    const response = await api.put(
-      `/aquarium-microservice/aquarium/${aquarium.name}`,
-      {
+    try {
+      await api.put(`/aquarium-microservice/aquarium/${aquarium.name}`, {
         fictionalName,
         fish: fishSpecie,
         foodQuantity: food,
-        foodInterval: 2,
+        fishQuantity: fishAmount,
+        foodInterval: feedTime,
         turnOnLight: lightOn,
         turnOffLight: lightOff,
-      }
-    );
-
-    if (response.status === 200) {
+      });
       navigation.navigate('Home');
-    } else {
+    } catch (err) {
       Alert.alert('Falha no cadastro', 'Verifique os campos preenchidos!');
     }
   };
@@ -82,7 +78,7 @@ export default function CustomizeAquarium({ navigation }) {
             icon="create"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Nome ficticio do aquário"
+            placeholder="Nome fictício do aquário"
             returnKeyType="send"
             onSubmitEditing={handleSubmit}
             value={fictionalName}
@@ -93,9 +89,8 @@ export default function CustomizeAquarium({ navigation }) {
               icon="create"
               autoCorrect={false}
               autoCapitalize="none"
-              placeholder="Espécie"
-              returnKeyType="send"
-              onSubmitEditing={handleSubmit}
+              placeholder="Espécie dos peixes"
+              returnKeyType="next"
               value={fishSpecie}
               onChangeText={setFishSpecie}
             />
@@ -110,6 +105,20 @@ export default function CustomizeAquarium({ navigation }) {
             </QuantityView>
           </AmountView>
 
+          <Separator />
+
+          <FormInput
+            icon="access-time"
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Intervalo de alimentação(h)"
+            returnKeyType="next"
+            value={feedTime}
+            onChangeText={setFeedTime}
+            keyboardType="numeric"
+            maxLength={2}
+          />
+
           <AmountView>
             <AmountText>Quantidade de ração (g) </AmountText>
             <QuantityView>
@@ -122,12 +131,6 @@ export default function CustomizeAquarium({ navigation }) {
               </AmountButton>
             </QuantityView>
           </AmountView>
-
-          <TimeInput
-            text="Horário de alimentação"
-            time={feedTime}
-            setTime={time => setFeedTime(time)}
-          />
 
           <TimeInput
             text="Horário de ligar a luz"

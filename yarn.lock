@@ -758,7 +758,6 @@
 "@react-native-community/async-storage@^1.6.2":
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.6.2.tgz#a19ca7149c4dfe8216f2330e6b1ebfe2d075ef92"
-  integrity sha512-EJGsbrHubK1mGxPjWB74AaHAd5m9I+Gg2RRPZzMK6org7QOU9WOBnIMFqoeVto3hKOaEPlk8NV74H6G34/2pZQ==
 
 "@react-native-community/cli-platform-android@^3.0.0-alpha.1", "@react-native-community/cli-platform-android@^3.0.0-alpha.2":
   version "3.0.0-alpha.2"
@@ -863,7 +862,6 @@
 "@redux-saga/core@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.1.1.tgz#72432130630cca08260086ffc564c2aa5488a0a2"
-  integrity sha512-WKXfj2cYkP0eh74dE1ueMjVDoGJIkppXiMFgx0buVRkXENeZmRxIjM4lh9LEWWFqay7I/Qkw7+cMossa7xXoAQ==
   dependencies:
     "@babel/runtime" "^7.6.0"
     "@redux-saga/deferred" "^1.1.0"
@@ -877,19 +875,16 @@
 "@redux-saga/deferred@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/deferred/-/deferred-1.1.0.tgz#aff018f64a936c288c18bd64ddf9ccfa143db6b4"
-  integrity sha512-wOCJCby3hx14bvrEeFLJ1JJTjJdXDJyC+B3JQ6eiqgzNghylbf969lIYmS2Arf2QuALfUtRBNPXBIMDKG9km4g==
 
 "@redux-saga/delay-p@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/delay-p/-/delay-p-1.1.0.tgz#4024f979d0f78763d2e90233be8c922781ae4400"
-  integrity sha512-BcRwXs20kKjgiYEwZARkpVoRIe/hHftW3iwPhdeW4/jPyR9gLv/vG8VsJMF5NDEch+/w/mJtdgSubq+wtOS47g==
   dependencies:
     "@redux-saga/symbols" "^1.1.0"
 
 "@redux-saga/is@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/is/-/is-1.1.0.tgz#d74358364ebde160bf1b8bd94903ff7684b12d41"
-  integrity sha512-0uFXWGSvDCfNBdROHwEVixNhFbI3S+UGBQfcPXQiYL+CjIjyR3DTg2Z+NFH9xzP+H4Oh/yGtTHDhC0GxYp7HQQ==
   dependencies:
     "@redux-saga/symbols" "^1.1.0"
     "@redux-saga/types" "^1.1.0"
@@ -897,12 +892,10 @@
 "@redux-saga/symbols@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/symbols/-/symbols-1.1.0.tgz#676b277cb5deb48ce723b2b394cbae97f82e8319"
-  integrity sha512-Fzw1wV3j4hbac3MYmgNE18Z53URmQZeilTHZLF7Lm4SQ1jG4fcU47v2kElsEbQXUSaFqj+uJqdRzmDGNb6pRwQ==
 
 "@redux-saga/types@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/types/-/types-1.1.0.tgz#0e81ce56b4883b4b2a3001ebe1ab298b84237204"
-  integrity sha512-afmTuJrylUU/0OtqzaRkbyYFFNgCF73Bvel/sw90pvGrWIZ+vyoIJqA6eMSoA6+nb443kTmulmBtC9NerXboNg==
 
 "@types/babel__core@^7.1.0":
   version "7.1.3"
@@ -1269,7 +1262,6 @@ aws4@^1.8.0:
 axios@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
-  integrity sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==
   dependencies:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
@@ -2877,7 +2869,6 @@ image-size@^0.6.0:
 immer@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/immer/-/immer-4.0.1.tgz#9108c1ece7fdd7efb91d21e5eb4bac26f7c3a8ba"
-  integrity sha512-qZFpWApnbubcJ03gvWa6zUQz2OTkDc6yINdFXI1lm2IoMYsiVVMrxvfeLDURFhUGJfsQysDUjHSXYnJfMMHAwQ==
 
 import-fresh@^2.0.0:
   version "2.0.0"
@@ -4168,7 +4159,6 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
 moment@^2.22.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
-  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
 morgan@^1.9.0:
   version "1.9.1"
@@ -4758,7 +4748,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.5.4, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -4836,17 +4826,14 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
-  integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
 react-native-confirmation-code-field@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/react-native-confirmation-code-field/-/react-native-confirmation-code-field-4.1.0.tgz#3ed2b92fc78b1ce7180dc1207e46c4e7a91c81cf"
-  integrity sha512-9QEnoC2BIhSOrCtOd75gJcGyACfnwBInJ6b1S6A5L8n6TeZi9P25fGuj8mHWkOyMyKZ6LqBu0wEx0nAXUCLvuA==
 
 react-native-datepicker@^1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/react-native-datepicker/-/react-native-datepicker-1.7.2.tgz#58d0822591a0ac9b32aba082650222a0ee29669d"
-  integrity sha1-WNCCJZGgrJsyq6CCZQIioO4pZp0=
   dependencies:
     moment "^2.22.0"
 
@@ -4867,6 +4854,13 @@ react-native-reanimated@^1.2.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.3.0.tgz#581cdb0bd1ff05e7304b116af712ded0c7665ede"
 
+react-native-redux-toast@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-redux-toast/-/react-native-redux-toast-1.0.3.tgz#85c928774d1cd18b0c88689e895f748c2a27d87e"
+  dependencies:
+    prop-types "^15.5.10"
+    seamless-immutable "^7.1.2"
+
 react-native-safe-area-view@^0.14.1, react-native-safe-area-view@^0.14.6:
   version "0.14.8"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.14.8.tgz#ef33c46ff8164ae77acad48c3039ec9c34873e5b"
@@ -4882,7 +4876,6 @@ react-native-safe-area-view@^0.14.1, react-native-safe-area-view@^0.14.6:
 react-native-tab-view@^2.9.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.10.0.tgz#5e249e5650502010013449ffd4e5edc18a95364b"
-  integrity sha512-qgexVz5eO4yaFjdkmn/sURXgVvaBo6pZD/q1eoca96SbPVbaH3WzVhF3bRUfeTHwZkXwznFTpS3JURqIFU8vQA==
 
 react-native-vector-icons@^6.6.0:
   version "6.6.0"
@@ -4926,17 +4919,20 @@ react-native@0.61.2:
     stacktrace-parser "^0.1.3"
     whatwg-fetch "^3.0.0"
 
+react-navigation-hooks@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-navigation-hooks/-/react-navigation-hooks-1.1.0.tgz#337c41a50ebc7b9030bb9d9333cd4fd6e1f86b68"
+  integrity sha512-ZY/aiYJ88KXaOo8iOa4171O/0x6ztGhUPd2OYzdaJhLT/tP64zi5HB/RZFImuKhaBTODXjoSpFaOTA5xpePG4g==
+
 react-navigation-stack@^1.9.4:
   version "1.9.4"
   resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-1.9.4.tgz#9de7537bb83a1d30a177957bc7932b9447f4c409"
-  integrity sha512-0Iv8t99RPsznXVadlHGRwOJqLzJmj96PfWiwmZEhVnbNwMVXMLz3oOno0LL9tbiukQxEaFAKUIblElpd9izS6w==
   dependencies:
     prop-types "^15.7.2"
 
 react-navigation-tabs@^2.5.6:
   version "2.5.6"
   resolved "https://registry.yarnpkg.com/react-navigation-tabs/-/react-navigation-tabs-2.5.6.tgz#51f1a39b6c9525e6b5fe035945c243c04e53242b"
-  integrity sha512-4WivEAsChJ+MuJ6JHxhAUMekHnVIt/zc4y/07KChXD5NBkSE0sk4vmMRndZQ6AP3n/ZihACcfigBAsMoqt0JXA==
   dependencies:
     hoist-non-react-statics "^3.3.0"
     react-lifecycles-compat "^3.0.4"
@@ -4953,7 +4949,6 @@ react-navigation@^4.0.4:
 react-redux@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.1.tgz#ce6eee1b734a7a76e0788b3309bf78ff6b34fa0a"
-  integrity sha512-QsW0vcmVVdNQzEkrgzh2W3Ksvr8cqpAv5FhEk7tNEft+5pp7rXxAudTz3VOPawRkLIepItpkEIyLcN/VVXzjTg==
   dependencies:
     "@babel/runtime" "^7.5.5"
     hoist-non-react-statics "^3.3.0"
@@ -4986,12 +4981,10 @@ react@16.9.0:
 reactotron-core-client@2.8.6:
   version "2.8.6"
   resolved "https://registry.yarnpkg.com/reactotron-core-client/-/reactotron-core-client-2.8.6.tgz#c3e02aca1af6246d033f2946c38562e2c7a4df09"
-  integrity sha512-xgg6dusfgQHC98f4iRH/Zak/PNvA46znupEd2U7DSCmmhZbfCpSSveKUsYok0OW0HiSCSvi41tNELj+QU6pRVQ==
 
 reactotron-react-native@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/reactotron-react-native/-/reactotron-react-native-4.0.2.tgz#b44185e95186c89617f69484bc056e9284425057"
-  integrity sha512-zY5m0TV9y52h31/Vvd/Zs3jneEKYWbJ6vGrBeZ/d6Z2gVvwI3su+7B2qh8s00KHStIF4MTg0MrKc0FYRFWmmoQ==
   dependencies:
     mitt "1.1.3"
     query-string "6.8.1"
@@ -5001,12 +4994,10 @@ reactotron-react-native@^4.0.2:
 reactotron-redux-saga@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/reactotron-redux-saga/-/reactotron-redux-saga-4.2.2.tgz#09072b4f43520db9646550937c7195d9b44bf81e"
-  integrity sha512-5BHi7Fj+8WOB3bMfr9lshQD9ml1aZnwk74GJpcOATxxMeHevp26ethaLsP0pPv+B6Ojqw7QLMEBX09B3u+z1Bg==
 
 reactotron-redux@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/reactotron-redux/-/reactotron-redux-3.1.2.tgz#37301687d4e2a5548664d21fc7447d1171e08ab2"
-  integrity sha512-2ScTmE2+kxjKPc7+vsYuw+igkhd4tjoftn4ouugVudQCO7B5vXVyQwLkNv/feaFfFoPlCQSVeJVg7PdzDFOsEQ==
 
 read-pkg-up@^2.0.0:
   version "2.0.0"
@@ -5059,19 +5050,16 @@ realpath-native@^1.1.0:
 redux-persist@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-6.0.0.tgz#b4d2972f9859597c130d40d4b146fecdab51b3a8"
-  integrity sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==
 
 redux-saga@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.1.1.tgz#7e02879beb02c92030b5fbe746fd70e8bda97dfb"
-  integrity sha512-guSnGJ/uEF8yL8Mn4aNa7HxRGCpVUALCkec9iTTD0fOhQqkF6bRQkBLeS+7/cAH3nFnr299bi/DOurTi1apcCA==
   dependencies:
     "@redux-saga/core" "^1.1.1"
 
 redux@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
-  integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
   dependencies:
     loose-envify "^1.4.0"
     symbol-observable "^1.2.0"
@@ -5331,6 +5319,10 @@ scheduler@^0.13.6:
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+
+seamless-immutable@^7.1.2:
+  version "7.1.4"
+  resolved "https://registry.yarnpkg.com/seamless-immutable/-/seamless-immutable-7.1.4.tgz#6e9536def083ddc4dea0207d722e0e80d0f372f8"
 
 "semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0:
   version "5.7.1"
@@ -5727,7 +5719,6 @@ symbol-observable@1.0.1:
 symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
-  integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
 
 symbol-tree@^3.2.2:
   version "3.2.4"
@@ -5890,19 +5881,16 @@ typedarray@^0.0.6:
 typescript-compare@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/typescript-compare/-/typescript-compare-0.0.2.tgz#7ee40a400a406c2ea0a7e551efd3309021d5f425"
-  integrity sha512-8ja4j7pMHkfLJQO2/8tut7ub+J3Lw2S3061eJLFQcvs3tsmJKp8KG5NtpLn7KcY2w08edF74BSVN7qJS0U6oHA==
   dependencies:
     typescript-logic "^0.0.0"
 
 typescript-logic@^0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/typescript-logic/-/typescript-logic-0.0.0.tgz#66ebd82a2548f2b444a43667bec120b496890196"
-  integrity sha512-zXFars5LUkI3zP492ls0VskH3TtdeHCqu0i7/duGt60i5IGPIpAHE/DWo5FqJ6EjQ15YKXrt+AETjv60Dat34Q==
 
 typescript-tuple@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/typescript-tuple/-/typescript-tuple-2.2.1.tgz#7d9813fb4b355f69ac55032e0363e8bb0f04dad2"
-  integrity sha512-Zcr0lbt8z5ZdEzERHAMAniTiIKerFCMgd7yjq1fPnDJ43et/k9twIFQMUYff9k5oXcsQ0WpvFcgzK2ZKASoW6Q==
   dependencies:
     typescript-compare "^0.0.2"
 

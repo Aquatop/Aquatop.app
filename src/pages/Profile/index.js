@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import Background from '~/components/Background';
 import { signOut } from '~/store/modules/auth/actions';
 import { updateProfileRequest } from '~/store/modules/user/actions';
@@ -13,8 +15,6 @@ import {
   FormInput,
   SubmitButton,
   LogoutButton,
-  HomeLink,
-  HomeLinkText,
 } from './styles';
 
 export default function Profile({ navigation }) {
@@ -121,16 +121,15 @@ export default function Profile({ navigation }) {
 
           <SubmitButton onPress={handleSubmit}>Atualizar perfil</SubmitButton>
           <LogoutButton onPress={handleLogout}>Sair do Aquatop</LogoutButton>
-
-          <HomeLink
-            onPress={() => {
-              navigation.navigate('Home');
-            }}
-          >
-            <HomeLinkText> {'<<'} Voltar </HomeLinkText>
-          </HomeLink>
         </Form>
       </Container>
     </Background>
   );
 }
+
+Profile.navigationOptions = {
+  tabBarLabel: 'Meu perfil',
+  tabBarIcon: ({ tintColor }) => (
+    <Icon name="person" size={45} color={tintColor} />
+  ),
+};
